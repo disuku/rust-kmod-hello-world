@@ -1,5 +1,9 @@
 # Hello World Rust Kernel Module
 
+## Dependencies
+
+ - build-essential (Ubuntu)
+
 ## Building
 
 `$ ./build.sh`
