@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+set -e
+
 rm -rf build
-cp -r src build
-(cd build;
-g++ -c -o lib.o lib.c
-make
-)
+cp -r src-ko build
+
+cargo build --release
+cp target/release/librust_kmod_hello_world.a build/lib.o
+
+(cd build; make)

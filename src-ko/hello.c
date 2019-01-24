@@ -6,6 +6,10 @@
 
 const char* get_output(void);
 
+/*void _printk(const char* message) {
+  printk(message);
+}*/
+
 int init_module(void) {
 	const char* out;
 	printk(KERN_INFO "Hello, World!\n");
