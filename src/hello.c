@@ -4,9 +4,13 @@
 #include <linux/module.h>	/* Needed by all modules */
 #include <linux/kernel.h>	/* Needed for KERN_INFO */
 
-int init_module(void)
-{
+const char* get_output(void);
+
+int init_module(void) {
+	const char* out;
 	printk(KERN_INFO "Hello, World!\n");
+	out = get_output();
+	printk(out);
 
 	/*
 	 * A non 0 return means init_module failed; module can't be loaded.
@@ -14,7 +18,7 @@ int init_module(void)
 	return 0;
 }
 
-void cleanup_module(void)
-{
+void cleanup_module(void) {
 	printk(KERN_INFO "Goodbye, World!\n");
 }
+
