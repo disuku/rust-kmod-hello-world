@@ -10,8 +10,11 @@
 
 ## Loading into kernel
 
-`# insmod ./build/hello.ko`
+`# insmod ./build/myhello.ko`
 
 ## Removing from Kernel
 
-`# rmmod hello`
+`# rmmod myhello`
+
+## All at once
+`$ ./build.sh && sudo insmod ./build/myhello.ko && sudo rmmod myhello`
