@@ -5,8 +5,10 @@
 #include<linux/fs.h>
 #include<linux/uaccess.h>
 
-#define DEVICE_NAME "simple_character_device_driver"
-#define CLASS_NAME "simple_character_device_driver"
+#include "../src/lib.h"
+
+#define DEVICE_NAME "disuku"
+#define CLASS_NAME "disuku"
 #define SUCCESS 0
 #define BUF_LEN 256
 
@@ -69,6 +71,8 @@ int init_device_control(void)
 void cleanup_device_control(void)
 {
     unregister_chrdev(Major, DEVICE_NAME);
+    device_destroy(char_class, MKDEV(Major, 0));
+    class_destroy(char_class);
     printk(KERN_INFO "Cleanup");
 }
 
